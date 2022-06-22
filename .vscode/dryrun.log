@@ -1,0 +1,14 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/orcharddu/Workspace/rCore/rCore-impl'
+(rustup target list | grep "riscv64gc-unknown-none-elf (installed)") || rustup target add riscv64gc-unknown-none-elf
+cargo install cargo-binutils --vers =0.3.3
+rustup component add rust-src
+rustup component add llvm-tools-preview
+(which last-qemu) || (rm -f last-k210 && touch last-qemu && make clean)
+echo Platform: qemu
+# @cp src/linker-qemu.ld src/linker.ld
+cargo build --release
+# @rm src/linker.ld
+rust-objcopy --binary-architecture=riscv64 target/riscv64gc-unknown-none-elf/release/os --strip-all -O binary target/riscv64gc-unknown-none-elf/release/os.bin
+make: Leaving directory `/Users/orcharddu/Workspace/rCore/rCore-impl'
+ 

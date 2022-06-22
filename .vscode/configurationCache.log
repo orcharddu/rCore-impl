@@ -1,0 +1,1 @@
+{"buildTargets":["build","clean","debug","dev-run","disasm","disasm-vim","env","gdbclient","gdbserver","kernel","make","run","run-inner","switch-check","target/riscv64gc-unknown-none-elf/release/os.bin"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
